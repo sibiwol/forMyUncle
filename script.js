@@ -23,9 +23,9 @@
 // xhr.send("");
   $.ajax( {
     type: "GET", 
-    url: "http://openapi.seoul.go.kr:8088/684d77555a797539353654426b5366/xml/bigKcyPlatPlcInfo/1/5/",
+    url: "http://openapi.seoul.go.kr:8088/684d77555a797539353654426b5366/json/bigKcyPlatPlcInfo/1/5/",
     data: {},
     success: function(response) {
-      console.log(response)
+      console.log(response["bigKcyPlatPlcInfo"]["row"][1]["JI"])
     }
   })
