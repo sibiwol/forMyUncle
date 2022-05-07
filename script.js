@@ -21,5 +21,3 @@ xhr.onreadystatechange = function () {
   }
 };
 xhr.send("");
-
-for ( i = 0; i)
