@@ -3,14 +3,15 @@
 // bigKcyPlatPlcInfo와 bigCmpBjdongMgmInfo에서 시군구_코드를 찾아 시군구명의 값으로 바꾼다
 // bigKcyPlatPlcInfo와 bigCmpBjdongMgmInfo에서 법정동_코드를 찾아 법정동명의 값으로 바꾼다
 
-// 근데 데이터가 너무 많다... 1200개가 넘어간다. 데이터 관리하기 위해 
+// 건축 인허가 대지 위치
+// 좋은 거 찾았다. 이거 쓰자.
+// https://open.eais.go.kr/opnsvc/opnSvcInqireView.do?viewType=1&searchCondition=01&opnSvcSn=55&searchKeyword=%EA%B1%B4%EC%B6%95%EB%8D%B0%EC%9D%B4%ED%84%B0#
 
-//bigKcyPlatPlcInfo 94201
+// 근데 데이터가 너무 많다... 1714개 정도? 데이터 관리하기 위해 sql 필요... 
 function showBigKcyPlatPlcInfo() {
   $.ajax( {
     type: "GET", 
-    url1: "http://openapi.seoul.go.kr:8088/684d77555a797539353654426b5366/json/bigKcyPlatPlcInfo/1/1000/",
-    url2: "http://openapi.seoul.go.kr:8088/684d77555a797539353654426b5366/json/bigKcyPlatPlcInfo/1001/1200/",
+    url: "http://openapi.seoul.go.kr:8088/684d77555a797539353654426b5366/json/bigKcyPlatPlcInfo/1001/2000/",
     data: {},
     success: function(response) {
       let bigKcyPlatPlcInfo = response["bigKcyPlatPlcInfo"]["row"]
@@ -32,7 +33,7 @@ function showBigKcyPlatPlcInfo() {
 }
   
 
-  //bigCmpBjdongMgmInfo
+  //bigKcyPlatPlcInfo 94201
   // 필요한 데이터
   // 시군구 코드 => 시군구명, 법정동 코드 => 법정동명
   function showBigCmpBjdongMgmInfo() {
@@ -45,4 +46,6 @@ function showBigKcyPlatPlcInfo() {
       }
     })
   }
- 
+
+showBigKcyPlatPlcInfo()
+showBigCmpBjdongMgmInfo()
